@@ -1,54 +1,59 @@
 # SuperAI Season 6 L2H4
 
-A lightweight monorepo starter for hackathons, built with **npm workspaces** and **Turborepo**.
+โปรเจกต์นี้เป็น **Monorepo** สำหรับใช้ใน Hackathon โดยใช้ **npm workspaces** ร่วมกับ **Turborepo** ช่วยให้จัดการ Frontend และ Backend ในที่เดียวได้สะดวกขึ้น
 
-## Structure
+## โครงสร้างโปรเจกต์
 
 ```
 .
 ├── apps/
-│   └── web/                 # Next.js 16 + Tailwind CSS v4
+│   ├── web/                 # Frontend: Next.js 16 + Tailwind CSS v4
+│   └── api/                 # Backend: Express + TypeScript
 ├── packages/
-│   └── ui/                  # Shared React + Tailwind UI components
-├── package.json             # Root workspace configuration
-└── turbo.json               # Turborepo pipeline
+│   └── ui/                  # คอมโพเนนต์ UI ที่แชร์ใช้ร่วมกัน
+├── package.json             # ตั้งค่า workspace หลัก
+└── turbo.json               # ตั้งค่า pipeline ของ Turborepo
 ```
 
-## Getting Started
+## เริ่มต้นใช้งาน
 
-Install all dependencies from the root:
+### 1. ติดตั้งแพ็กเกจทั้งหมด
+
+รันคำสั่งนี้ที่โฟลเดอร์หลัก (root):
 
 ```bash
 npm install
 ```
 
-Run the development server (Turborepo will orchestrate tasks across workspaces):
+### 2. รันในโหมดพัฒนา
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the app.
+- Frontend จะเปิดที่ [http://localhost:3000](http://localhost:3000)
+- Backend จะเปิดที่ [http://localhost:4000](http://localhost:4000)
 
-## Available Scripts
+## คำสั่งที่ใช้บ่อย
 
-| Command        | Description                                  |
-|----------------|----------------------------------------------|
-| `npm run dev`  | Start all apps in development mode           |
-| `npm run build`| Build all apps and packages                  |
-| `npm run lint` | Lint all apps and packages                   |
-| `npm run clean`| Clean build artifacts and node_modules       |
+| คำสั่ง | ทำอะไร |
+|---|---|
+| `npm run dev` | รันทุกแอปในโหมดพัฒนา |
+| `npm run build` | สร้างไฟล์ production ของทุกแอป |
+| `npm run lint` | ตรวจสอบโค้ดของทุกแอป |
+| `npm run clean` | ลบไฟล์ build และ node_modules |
 
-## Adding a New Package
+## วิธีเพิ่ม Package ใหม่
 
-1. Create a new directory under `packages/`.
-2. Add a `package.json` with `"name": "@repo/<package-name>"`.
-3. Reference it from apps using `"@repo/<package-name>": "*"`.
-4. Run `npm install` from the root to link workspaces.
+1. สร้างโฟลเดอร์ใหม่ใน `packages/`
+2. ใส่ `package.json` โดยตั้งชื่อเป็น `"name": "@repo/<ชื่อ-package>"`
+3. เรียกใช้ในแอปต่าง ๆ ด้วย `"@repo/<ชื่อ-package>": "*"`
+4. รัน `npm install` ที่ root เพื่อลิงก์ workspace
 
-## Tech Stack
+## เทคโนโลยีที่ใช้
 
 - [Next.js 16](https://nextjs.org/) (App Router, TypeScript)
 - [Tailwind CSS v4](https://tailwindcss.com/)
+- [Express](https://expressjs.com/)
 - [Turborepo](https://turbo.build/)
 - npm Workspaces
