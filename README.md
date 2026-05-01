@@ -36,12 +36,12 @@ npm run dev
 
 ## คำสั่งที่ใช้บ่อย
 
-| คำสั่ง | ทำอะไร |
-|---|---|
-| `npm run dev` | รันทุกแอปในโหมดพัฒนา |
+| คำสั่ง          | ทำอะไร                         |
+| --------------- | ------------------------------ |
+| `npm run dev`   | รันทุกแอปในโหมดพัฒนา           |
 | `npm run build` | สร้างไฟล์ production ของทุกแอป |
-| `npm run lint` | ตรวจสอบโค้ดของทุกแอป |
-| `npm run clean` | ลบไฟล์ build และ node_modules |
+| `npm run lint`  | ตรวจสอบโค้ดของทุกแอป           |
+| `npm run clean` | ลบไฟล์ build และ node_modules  |
 
 ## วิธีเพิ่ม Package ใหม่
 
@@ -56,21 +56,20 @@ npm run dev
 
 ### ขั้นตอนการทำงาน
 
-#### 1. สร้าง Branch ของตัวเอง
-
-แต่ละคนสร้าง branch จาก `main` โดยตั้งชื่อตามรูปแบบนี้:
+#### 1. ไปที่ Branch ของตัวเอง
 
 ```bash
-git checkout -b vibe/<ชื่อเล่น>
+git checkout -b idea/<เลข>
 # ตัวอย่าง: git checkout -b vibe/boss
 ```
 
 **Branch ที่แนะนำสำหรับทีม 5 คน:**
-- `vibe/boss`
-- `vibe/first`
-- `vibe/mint`
-- `vibe/ice`
-- `vibe/plug`
+
+- `vibe/1`
+- `vibe/2`
+- `vibe/3`
+- `vibe/4`
+- `vibe/5`
 
 > แต่ละคนอย่าไปแก้ branch คนอื่นเด็ดขาด
 
@@ -78,10 +77,11 @@ git checkout -b vibe/<ชื่อเล่น>
 
 - **Frontend:** แก้ไขหรือเพิ่มเติมใน `apps/web/src`
 - **Backend:** แก้ไขหรือเพิ่มเติมใน `apps/api/src`
-- **UI ส共享:** ถ้าอยากให้คนอื่นใช้คอมโพเนนต์ที่ตัวเองสร้าง ให้ใส่ใน `packages/ui/src`
+- **UI:** ถ้าอยากให้คนอื่นใช้คอมโพเนนต์ที่ตัวเองสร้าง ให้ใส่ใน `packages/ui/src`
 
 **ทริค Vibe Coding:**
-1. เปิด AI Assistant (Copilot, Cursor, หรือ ChatGPT) พร้อมบอก context ว่า "เรากำลังทำ Next.js 16 + Express monorepo"
+
+1. เปิด AI Assistant (Claude Code, Codex, OpenCode, Copilot) พร้อมบอก context ว่า "เรากำลังทำ Next.js 16 + Express monorepo"
 2. บอก AI ว่าอยากได้ feature อะไร แล้วให้ AI สร้างโค้ดมา
 3. คัดลอกโค้ดที่ได้ใส่ในโปรเจกต์ รัน `npm run dev` เช็คว่าใช้ได้ไหม
 4. ถ้าพัง ก็ให้ AI แก้ หรือ `git checkout -- .` แล้วเริ่มใหม่ได้เสมอ
@@ -91,27 +91,21 @@ git checkout -b vibe/<ชื่อเล่น>
 ```bash
 git add .
 git commit -m "feat: เพิ่มระบบ login แบบ vibe code"
-git push origin vibe/<ชื่อเล่น>
+git push origin vibe/<เลข>
 ```
 
 #### 4. รวมไอเดียเข้าด้วยกัน (Merge)
 
 เมื่อถึงเวลารวมงาน:
 
-1. สร้าง Pull Request จาก branch ตัวเอง → `main`
-2. คนในทีมรีวิวโค้ดกัน (หรือใช้ AI ช่วย review ก็ได้)
-3. ถ้ามี conflict ให้แก้ตรงไหนที่ซ้ำซ้อนกัน
-4. Merge เข้า `main`
-
-**กฎการ Merge ให้ปลอดภัย:**
-- ถ้าแก้ไฟล์เดียวกัน → คุยกันก่อนว่าเอาของใคร
-- ถ้าแก้คนละไฟล์ → merge ได้เลยสบาย ๆ
-- ถ้าไม่แน่ใจ → สร้าง branch ใหม่ `merge/test` ลอง merge ดูก่อน
+1. ประชุมกันดูงานของแต่ละคนใน vibe/<เลข> นำข้อดีและ feature ลิสต์ไว้
+2. เลือก 1 branch ทำ pull request ขึ้น main
+3. นำ feature ที่ลิสต์​ไว้มาเสริมจุดเด่น branch ที่ดึงมา
 
 ### สิ่งที่ห้ามทำเด็ดขาด
+
 - ห้าม push ตรง `main` โดยไม่ผ่าน Pull Request
 - ห้ามลบ branch คนอื่น
-- ห้ามแก้ `package.json` หลักโดยไม่บอกทีม
 
 ## เทคโนโลยีที่ใช้
 
